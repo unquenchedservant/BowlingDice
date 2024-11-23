@@ -14,8 +14,8 @@ class Hand:
         self.dice.append(dice.Dice("spare"))
         self.dice.append(dice.Dice("spare"))
 
-    def roll(self, framePos=1):
-        if framePos == 1:
+    def roll(self, framePos=1, frame=1, previousResult="normal"):
+        if framePos == 1 or (frame == 10 and framePos == 2 and previousResult=="strike") or (frame == 10 and framePos == 3 and previousResult=="strike") or (frame == 10 and framePos == 3 and previousResult=="spare"):
             for d in self.dice:
                 d.active = True
                 d.roll(framePos)
